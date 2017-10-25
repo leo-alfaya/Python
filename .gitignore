@@ -1,6 +1,8 @@
-/Lib
 /Include
+/Lib
 /Scripts
+/share
 /tcl
+*/_pycache_
 pip-selfcheck.json
 pyvenv.cfg
