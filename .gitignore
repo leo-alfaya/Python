@@ -3,6 +3,6 @@
 /Scripts
 /share
 /tcl
-*/_pycache_
+*/__pycache__
 pip-selfcheck.json
 pyvenv.cfg
