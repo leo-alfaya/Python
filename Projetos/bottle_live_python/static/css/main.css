@@ -1,0 +1,24 @@
+.container{
+	width: 1200px;
+}
+
+form{
+	width: 30%;
+	margin: auto;
+	padding-top: 100px;
+}
+
+.menu-principal{
+	display: inline-block;
+	margin: auto;
+}
+
+.not_found_message{
+	margin: auto;
+	padding-top: 300px;
+}
+
+.user-data{
+	margin: auto;
+	padding-top: 300px;
+}
