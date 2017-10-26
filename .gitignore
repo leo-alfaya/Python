@@ -4,5 +4,6 @@
 /share
 /tcl
 /Projetos/sqlalchemy_live_python/__pycache__
+Projetos/bottle_api_rest/__pycache__/
 pip-selfcheck.json
 pyvenv.cfg
