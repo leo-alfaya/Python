@@ -1,5 +1,4 @@
 from sqlalchemy import (create_engine, MetaData, Column, Table, Integer, String, ForeignKey, select)
-from pdb import set_trace
 
 engine = create_engine('sqlite:///base.db', echo=False)
 
@@ -18,6 +17,23 @@ discs = Table('discos', metadata,
 metadata.create_all()
 
 def search_all_artists():
-	set_trace()
 	return {_id: artist for _id, artist in select([artists]).execute()}
-	
+
+def insert_artist(artist):
+	conn = engine.connect()
+
+	artista_ins = artists.insert()
+
+	new_artist = artista_ins.values(nome=artist)
+
+	try:
+		conn.execute(new_artist)
+		status = True
+	except Exception as e:
+		print(e)
+		status = False
+	finally:
+		conn.close()
+		return status
+
+		
