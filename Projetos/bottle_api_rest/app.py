@@ -4,7 +4,7 @@ Loja de Cds.
 
 from bottle import Bottle, request, response
 from json import dumps
-from core import search_all_artists, insert_artist, insert_album
+from core import search_all_artists, insert_artist, insert_album, search_albums
 
 app = Bottle()
 
@@ -45,6 +45,13 @@ def post_artist():
 		response.status = 409 #Conflict
 
 	return dumps({response.status: artista})
+
+@app.get('/albums/<artist>')
+def albums_map(artist):
+	"""
+	Retornar albums do artista.
+	"""
+	return search_albums(artist)	
 
 @app.post('/album')
 def post_album():

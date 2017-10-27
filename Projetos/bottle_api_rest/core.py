@@ -1,4 +1,5 @@
 from sqlalchemy import (create_engine, MetaData, Column, Table, Integer, String, ForeignKey, select)
+from pdb import set_trace
 
 engine = create_engine('sqlite:///base.db', echo=False)
 
@@ -19,6 +20,11 @@ metadata.create_all()
 def search_all_artists():
 	return {_id: artist for _id, artist in select([artists]).execute()}
 
+def search_artist(artista_id):
+	artist_name = select([artists]).where(artists.c.id == artista_id).execute()
+	row = artist_name.fetchone()
+	return row['nome']
+
 def id_artist(artist):
 	searched = select([artists]).where(artists.c.nome == artist)
 	result = [_id for _id, artist in searched.execute()]
@@ -34,7 +40,7 @@ def insert_artist(artist):
 
 	artista_ins = artists.insert()
 
-	new_artist = artista_ins.values(nome=artist)
+	new_artist = artista_ins.values(nome=artist.lower())
 
 	try:
 		conn.execute(new_artist)
@@ -64,3 +70,17 @@ def insert_album(disc, ano, artista):
 	finally:
 		conn.close()
 		return status	
+
+def search_albums(artist):
+	artist_id = [x for x in select([artists.c.id]).where(artists.c.nome == artist.lower()).execute()]
+
+	if artist_id:
+		query = select([discs.c.id, discs.c.album, discs.c.ano, discs.c.artista_id]).where(
+					    discs.c.artista_id == artist_id[0][0]).execute()
+
+		return {_id: {'album': album,
+					  'ano': ano,
+					  'nome_artista': search_artist(artista_id)}
+				for _id, album, ano, artista_id in query} 
+
+	return {}
