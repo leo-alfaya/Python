@@ -53,21 +53,25 @@ def post_album():
 
 	Formato do input.
 	Content-Type: application/json
-	{"nome": "Zimbra"}
+	{
+	 "nome": "Vem",
+	 "artista": "Mallu",
+	 "ano":2017
+	}
 	"""
-	album = request.json
+	disc = request.json
 	response.headers['Content-Type'] = 'application/json'
 
-	if not album:
+	if not disc:
 		response.status = 400
-		return {response.status:album}
+		return {response.status:disc}
 
-	if insert_album(album['nome'].lower()):
+	if insert_album(disc['nome'], disc['ano'], disc['artista']):
 		response.status = 201 #Created
 	else:
 		response.status = 409 #Conflict
 
-	return dumps({response.status: album})
+	return dumps({response.status: disc})
 
 if __name__ == '__main__':
 	app.run(port=8081)
