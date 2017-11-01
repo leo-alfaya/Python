@@ -1,10 +1,9 @@
 class Page:
-	def __init__(self, browser, url):
-		self.url = url
+	def __init__(self, browser):
 		self.browser = browser	
 
-	def navigate(self):
-		self.browser.get(self.url)
+	def get(self, url):
+		self.browser.get(url)
 
 	def find(self, type, element_name):
 		if type == "id":
