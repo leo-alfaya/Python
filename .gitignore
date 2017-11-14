@@ -9,10 +9,11 @@
 /share
 /tcl
 /selenium
-Projetos/sqlalchemy_live_python/__pycache__
-Projetos/bottle_api_rest/__pycache__/
-Projetos/scraping_beautiful_soap/__pycache__/
-Projetos/scraping_selenium/__pycache__/
+testes/sqlalchemy_live_python/__pycache__
+testes/bottle_api_rest/__pycache__/
+testes/scraping_beautiful_soap/__pycache__/
+testes/scraping_selenium/__pycache__/
+testes/flask/__pycache__/
 pip-selfcheck.json
 pyvenv.cfg
 *.log

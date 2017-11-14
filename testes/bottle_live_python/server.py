@@ -44,4 +44,9 @@ def form_login_post():
 def not_found(area):
 	return dict(links=links, nome=area)
 
-run(port=8081, reloader=True, debug=True)
+@route('/camera', method='GET')
+@jinja2_view('paginas/camera.html')
+def render_camera():
+	pass	
+
+run(host='0.0.0.0', port=8081, reloader=True, debug=True)
