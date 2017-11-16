@@ -27,4 +27,5 @@ for x in nome_email:
     worksheet_dest.write(row, 0, x[0])
     worksheet_dest.write(row, 1, x[1])
     row += 1
-workbook_dest.save("Emails.xlsx")
+
+workbook_dest.save("Emails.xls")

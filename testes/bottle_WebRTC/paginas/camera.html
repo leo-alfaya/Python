@@ -4,13 +4,17 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
-    <title>Record a getUserMedia() Session</title>    
+    <title>Realtime communication with WebRTC</title>   
   </head>
   <body>
-    <h2>Acessando <code>getUserMedia()</code> via WebRTC.</h2>
-    <div id="video-container">
-      <video id="camera-stream" width="500" autoplay/>
-    </div>
+    <video id="localVideo" autoplay/>
+    <video id="remoteVideo" autoplay/>
+
+    <div>
+      <button id="startButton">Start</button>
+      <button id="callButton">Call</button>
+      <button id="hangupButton">Hang Up</button>
+    </div>    
   </body>
   <script type="text/javascript" src="/static/js/main.js"></script>
 </html>
