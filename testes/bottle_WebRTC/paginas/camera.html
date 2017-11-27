@@ -7,14 +7,22 @@
     <title>Realtime communication with WebRTC</title>   
   </head>
   <body>
-    <video id="localVideo" autoplay/>
-    <video id="remoteVideo" autoplay/>
+    <video id="localVideo" autoplay></video>
+    <video id="remoteVideo" autoplay></video>
+    <video id="remote2Video" autoplay></video>
+
 
     <div>
-      <button id="startButton">Start</button>
+      <button id="startButton_local" onclick="getMedia('#local')">Start Local</button>
+      <button id="startButton_remote" onclick="getMedia('#remote')">Start Remote</button>
+      <button id="startButton_remote2" onclick="getMedia('#remote2')">Start Remote</button>      
+    </div> 
+    <div>      
       <button id="callButton">Call</button>
-      <button id="hangupButton">Hang Up</button>
-    </div>    
-  </body>
+      <button id="callButton" onclick="teste()">Call</button>
+      <!--<button id="hangupButton">Hang Up</button>-->
+    </div>   
+  </body>  
+  <script type="text/javascript" src="/static/js/jquery-3.2.1.min.js"></script>
   <script type="text/javascript" src="/static/js/main.js"></script>
 </html>
