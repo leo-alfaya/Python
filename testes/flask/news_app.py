@@ -2,6 +2,7 @@
 from flask import Flask
 from blueprints.noticias import noticias_blueprint
 
+
 def create_app(config_filename=None):
 	app = Flask("flask")
 	if config_filename:
